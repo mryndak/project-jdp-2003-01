@@ -1,30 +1,36 @@
 package com.kodilla.ecommercee.domain;
 
-import org.joda.time.DateTime;
+import java.time.LocalDate;
 
 public class OrderDto {
     private Long orderId;
     private Long cartId;
     private Long userId;
-    private String paymentType;
-    private String deliveryType;
-    private DateTime orderDate;
-    private DateTime deliveryDate;
-    private String deliveryAddress;
+    private LocalDate orderDate;
+    private LocalDate deliveryDate;
+    private DeliveryType deliveryType;
+    private PaymentType paymentType;
     private OrderStatus orderStatus;
 
-    public OrderDto(Long orderId, Long cartId, Long userId, String paymentType,
-                    String deliveryType, DateTime orderDate, DateTime deliveryDate,
-                    String deliveryAddress, OrderStatus orderStatus) {
+    public OrderDto(Long orderId, Long cartId, Long userId, DeliveryType deliveryType, PaymentType paymentType, OrderStatus orderStatus) {
         this.orderId = orderId;
         this.cartId = cartId;
         this.userId = userId;
-        this.paymentType = paymentType;
         this.deliveryType = deliveryType;
-        this.orderDate = orderDate;
-        this.deliveryDate = deliveryDate;
-        this.deliveryAddress = deliveryAddress;
+        this.paymentType = paymentType;
         this.orderStatus = orderStatus;
+        createOrderDate();
+        createDeliveryDate(4);
+    }
+
+    private LocalDate createOrderDate() {
+        this.orderDate = LocalDate.now();
+        return orderDate;
+    }
+
+    private LocalDate createDeliveryDate(int days) {
+        this.deliveryDate = orderDate.plusDays(days);
+        return deliveryDate;
     }
 
     public Long getOrderId() {
@@ -39,24 +45,20 @@ public class OrderDto {
         return userId;
     }
 
-    public String getPaymentType() {
-        return paymentType;
-    }
-
-    public String getDeliveryType() {
-        return deliveryType;
-    }
-
-    public DateTime getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public DateTime getDeliveryDate() {
+    public LocalDate getDeliveryDate() {
         return deliveryDate;
     }
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
+    public DeliveryType getDeliveryType() {
+        return deliveryType;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
     }
 
     public OrderStatus getOrderStatus() {
