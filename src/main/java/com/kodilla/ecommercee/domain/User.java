@@ -4,6 +4,12 @@ import com.kodilla.ecommercee.GenericEntity;
 
 public class User extends GenericEntity {
 
-    private Long id;
-    private String userName;
+    private Long userId;
+    private String firstName;
+    private String lastName;
+    private String login;
+    private String password;
+    private String email;
+    private Payment paymentType;
+    private OrderStatus orderStatus;
 }
