@@ -1,7 +1,15 @@
 package com.kodilla.ecommercee.domain;
 
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.Random;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class OrderDto {
     private Long orderId;
     private Long cartId;
@@ -20,7 +28,7 @@ public class OrderDto {
         this.paymentType = paymentType;
         this.orderStatus = orderStatus;
         createOrderDate();
-        createDeliveryDate(4);
+        createDeliveryDate();
     }
 
     private LocalDate createOrderDate() {
@@ -28,40 +36,9 @@ public class OrderDto {
         return orderDate;
     }
 
-    private LocalDate createDeliveryDate(int days) {
-        this.deliveryDate = orderDate.plusDays(days);
+    private LocalDate createDeliveryDate() {
+        Random random = new Random(10);
+        this.deliveryDate = orderDate.plusDays(random.nextInt());
         return deliveryDate;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public Long getCartId() {
-        return cartId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public LocalDate getDeliveryDate() {
-        return deliveryDate;
-    }
-
-    public DeliveryType getDeliveryType() {
-        return deliveryType;
-    }
-
-    public PaymentType getPaymentType() {
-        return paymentType;
-    }
-
-    public OrderStatus getOrderStatus() {
-        return orderStatus;
     }
 }
