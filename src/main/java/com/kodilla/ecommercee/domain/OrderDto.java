@@ -3,6 +3,7 @@ package com.kodilla.ecommercee.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Random;
@@ -10,6 +11,7 @@ import java.util.Random;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class OrderDto {
     private Long orderId;
     private Long cartId;
