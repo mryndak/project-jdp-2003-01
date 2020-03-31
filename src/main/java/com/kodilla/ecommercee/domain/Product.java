@@ -1,16 +1,13 @@
 package com.kodilla.ecommercee.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
 @Entity
 public class Product {

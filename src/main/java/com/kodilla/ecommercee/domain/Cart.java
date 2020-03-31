@@ -1,41 +1,24 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "CART")
 public class Cart {
 
-    private Long cartId;
-    private LocalDate cartDate;
-    private List<CartItem> cartItemList = new ArrayList<>();
-    private Order order;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getCartId() {
-        return cartId;
-    }
+    private Long cartId;
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
-    }
-
-    @Column(name="CART_DATE")
-    public LocalDate getCartDate() {
-        return cartDate;
-    }
-
-    public void setCartDate(LocalDate cartDate) {
-        this.cartDate = cartDate;
-    }
+    @Column(name = "CART_DATE")
+    private LocalDate cartDate;
 
     @OneToMany(
             targetEntity = CartItem.class,
@@ -44,20 +27,10 @@ public class Cart {
             fetch = FetchType.LAZY
 
     )
-    public List<CartItem> getCartItemList() {
-        return cartItemList;
-    }
-
-    public void setCartItemList(List<CartItem> cartItemList) {
-        this.cartItemList = cartItemList;
-    }
+    private List<CartItem> cartItemList = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Order getOrder() {
-        return order;
-    }
+    private Order order;
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
+
 }

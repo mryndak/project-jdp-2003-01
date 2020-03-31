@@ -9,75 +9,30 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "CART_ITEM")
 public class CartItem {
 
-    private Long id;
-    private Long productId;
-    private String productName;
-    private LocalDate priceDate;
-    private Long productCount;
-    private LocalDate addedDate;
-    private List<Product> products = new ArrayList<>();
-    private Cart cart;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Long id;
 
     @Column(name = "PRODUCT_ID")
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+    private Long productId;
 
     @Column(name = "PRODUCT_NAME")
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
+    private String productName;
 
     @Column(name = "PRICE_DATE")
-    public LocalDate getPriceDate() {
-        return priceDate;
-    }
-
-    public void setPriceDate(LocalDate priceDate) {
-        this.priceDate = priceDate;
-    }
+    private LocalDate priceDate;
 
     @Column(name = "PRODUCT_COUNT")
-    public Long getProductCount() {
-        return productCount;
-    }
-
-    public void setProductCount(Long productCount) {
-        this.productCount = productCount;
-    }
+    private Long productCount;
 
     @Column(name = "ADDED_DATE")
-    public LocalDate getAddedDate() {
-        return addedDate;
-    }
-
-    public void setAddedDate(LocalDate addedDate) {
-        this.addedDate = addedDate;
-    }
+    private LocalDate addedDate;
 
     @OneToMany(
             targetEntity = Product.class,
@@ -85,20 +40,9 @@ public class CartItem {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
+    private List<Product> products = new ArrayList<>();
 
     @ManyToOne
-    public Cart getCart() {
-        return cart;
-    }
+    private Cart cart;
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
 }
