@@ -1,8 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
-import com.kodilla.ecommercee.GenericEntity;
-
-public class User extends GenericEntity {
+public class User  {
 
     private Long userId;
     private String firstName;
