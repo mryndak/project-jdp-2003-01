@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+import com.kodilla.ecommercee.GenericEntity;
 import java.time.LocalDate;
 
 public class Order extends GenericEntity {
