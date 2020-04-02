@@ -1,11 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
-import javax.persistence.*;
 import java.time.LocalDate;
 
 public class Order extends GenericEntity {
