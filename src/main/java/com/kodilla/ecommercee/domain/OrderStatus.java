@@ -1,5 +1,9 @@
 package com.kodilla.ecommercee.domain;
 
 public enum OrderStatus {
-    NEW, VERIFIED, CONFIRMED, EXECUTED, SHIPPED, DELIVERED;
+    ORDER_PLACED,
+    ORDER_CONFIRMED,
+    PREPARING_ORDER,
+    ORDER_SENT,
+    ORDER_CANCELED
 }
