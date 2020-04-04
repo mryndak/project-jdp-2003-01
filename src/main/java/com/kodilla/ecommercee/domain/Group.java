@@ -23,7 +23,7 @@ public class Group {
     private String description;
     @OneToMany(
             targetEntity = Product.class,
-            mappedBy = "groupId",
+            mappedBy = "group",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )

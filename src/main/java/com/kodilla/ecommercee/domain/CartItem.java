@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -36,7 +35,7 @@ public class CartItem {
 
     @OneToMany(
             targetEntity = Product.class,
-            mappedBy = "productId",
+            mappedBy = "cartItem",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )

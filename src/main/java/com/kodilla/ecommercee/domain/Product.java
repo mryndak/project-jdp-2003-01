@@ -1,5 +1,8 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -18,7 +21,7 @@ public class Product {
     
     @ManyToOne
     @JoinColumn(name = "GROUP_ID")
-    private Long groupId;
+    private Group group;
 
     @Column(name = "DESCRIPTION")
     private String description;
@@ -30,5 +33,6 @@ public class Product {
     private BigDecimal price;
 
     @ManyToOne
+    @JoinColumn(name = "CARTITEM_ID")
     private CartItem cartItem;
 }
