@@ -10,13 +10,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Table
-@Entity
+@Entity(name = "GROUP")
 public class Group {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column
-    private Long id;
+    private Long groupId;
     @Column
     private String name;
     @Column
