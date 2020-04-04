@@ -8,30 +8,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/orders/")
+@RequestMapping("/ecommercee/orders/")
 public class OrderController {
+
     @RequestMapping(method = RequestMethod.GET, value = "getOrders")
     public List<OrderDto> getOrders() {
         return new ArrayList<>();
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
     public OrderDto getOrder(Long orderId) {
-        return new OrderDto(orderId, 1L, 1L, DeliveryType.TO_HOME, PaymentType.CREDIT_CARD, OrderStatus.ORDER_SENT);
+        return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(10), DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.ORDER_PLACED);
     }
+
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
-    public boolean deleteOrder(Long orderId) {
-        return true;
+    public void deleteOrder(Long orderId) {
+        System.out.println("DeleteOrder @@@####@@@###");
     }
+
     @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
     public OrderDto updateOrder(Long orderId) {
-        return new OrderDto(orderId, 1L, 1L, DeliveryType.TO_HOME, PaymentType.CREDIT_CARD, OrderStatus.ORDER_SENT);
+        return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(20), DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.PREPARING_ORDER);
     }
+
     @RequestMapping(method = RequestMethod.POST, value = "createOrder")
-    public boolean createOrder(OrderDto orderDto) {
-        return true;
+    public void createOrder(OrderDto orderDto) {
+        System.out.println("CreateOrder #@@@@@@@@@@@###!@%%%%%%%");
     }
 }
