@@ -14,13 +14,13 @@ public class GroupController {
     }
 
     @PostMapping(value = "createGroup")
-    public boolean createGroup(GroupDto groupDto) {
+    public boolean createGroup(@RequestBody GroupDto groupDto) {
         return true;
     }
 
     @PutMapping(value = "updateGroup")
-    public GroupDto updateGroup(Long groupId) {
-        return new GroupDto(groupId, "car", "vehicles");
+    public GroupDto updateGroup(@RequestBody GroupDto groupDto) {
+        return groupDto;
     }
 
     @GetMapping(value = "getGroup")
