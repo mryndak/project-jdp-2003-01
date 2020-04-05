@@ -18,7 +18,7 @@ public class Group {
     @Column
     private Long id;
     @Column
-    private String name;
+    private String groupName;
     @Column
     private String description;
     @OneToMany(
@@ -28,6 +28,12 @@ public class Group {
             fetch = FetchType.LAZY
     )
     private List<Product> products = new ArrayList<>();
+
+    public Group(Long id, String groupName, String description) {
+        this.id = id;
+        this.groupName = groupName;
+        this.description = description;
+    }
 
     public void addProduct(Product product) {
         products.add(product);
