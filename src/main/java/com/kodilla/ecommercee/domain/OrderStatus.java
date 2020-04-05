@@ -6,4 +6,5 @@ public enum OrderStatus {
     PREPARING_ORDER,
     ORDER_SENT,
     ORDER_CANCELED
+
 }
