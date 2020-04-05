@@ -19,13 +19,10 @@ public class Order {
     private Long userId;
     private LocalDate orderDate;
     private LocalDate deliveryDate;
-
     @Enumerated(EnumType.STRING)
     private DeliveryType deliveryType;
-
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
-
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.ORDER_PLACED;
 }
