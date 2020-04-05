@@ -26,4 +26,5 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.ORDER_PLACED;
 
+
 }
