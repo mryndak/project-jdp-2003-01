@@ -1,30 +1,36 @@
 package com.kodilla.ecommercee;
 
+import com.kodilla.ecommercee.domain.GroupDto;
+import com.kodilla.ecommercee.service.GroupService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/v1/ecommercee/group")
 public class GroupController {
+
+    @Autowired
+    GroupService groupService;
+
     @GetMapping(value = "getGroups")
     public List<GroupDto> getGroups() {
-        return new ArrayList<>();
+        return groupService.getGroups();
     }
 
     @PostMapping(value = "createGroup")
-    public boolean createGroup(@RequestBody GroupDto groupDto) {
-        return true;
+    public void createGroup(@RequestBody GroupDto groupDto) {
+        groupService.create(groupDto);
     }
 
     @PutMapping(value = "updateGroup")
     public GroupDto updateGroup(@RequestBody GroupDto groupDto) {
-        return groupDto;
+        return groupService.update(groupDto);
     }
 
     @GetMapping(value = "getGroup")
     public GroupDto getGroup(Long groupId) {
-        return new GroupDto(1L, "Cars", "Vehicles likecars");
+        return groupService.getGroup(groupId);
     }
 }

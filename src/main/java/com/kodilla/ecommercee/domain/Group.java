@@ -12,7 +12,14 @@ import javax.persistence.*;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long groupId;
+    private Long id;
     private String groupName;
     private String description;
+
+
+    public Group(Long id, String groupName, String description) {
+        this.id = id;
+        this.groupName = groupName;
+        this.description = description;
+    }
 }
