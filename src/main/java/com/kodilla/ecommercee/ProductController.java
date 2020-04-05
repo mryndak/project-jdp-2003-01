@@ -40,5 +40,6 @@ public class ProductController {
     public boolean createProduct(ProductDto productDto){
         System.out.println("Product was created");
         return true;
+
     }
 }

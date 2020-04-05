@@ -18,5 +18,7 @@ public class Product {
     private Long groupId;
     private String description;
     private int quantity;
+    
     private BigDecimal price;
+
 }
