@@ -17,6 +17,7 @@ public class OrderDto {
     private Long id;
     private Long cartId;
     private Long userId;
+    private Long addressId;
     private final LocalDate orderDate = LocalDate.now();
     private LocalDate deliveryDate;
     @Enumerated(EnumType.STRING)
