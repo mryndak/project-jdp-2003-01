@@ -25,4 +25,5 @@ public class Order {
     private PaymentType paymentType;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.ORDER_PLACED;
+
 }
