@@ -18,6 +18,7 @@ public class OrderDto {
 
     private Long orderId;
     private Long cartId;
+
     private Long userId;
     private final LocalDate orderDate = LocalDate.now();
     private LocalDate deliveryDate;
