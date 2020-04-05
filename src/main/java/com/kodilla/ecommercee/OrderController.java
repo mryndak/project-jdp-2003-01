@@ -16,7 +16,6 @@ public class OrderController {
     public List<OrderDto> getOrders() {
         return new ArrayList<>();
     }
-
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
     public OrderDto getOrder(Long orderId) {
         return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(10), DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.ORDER_PLACED);
@@ -33,5 +32,4 @@ public class OrderController {
     public void createOrder(OrderDto orderDto) {
         System.out.println("CreateOrder #@@@@@@@@@@@###!@%%%%%%%");
     }
-
 }

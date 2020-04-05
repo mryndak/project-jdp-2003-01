@@ -25,5 +25,4 @@ public class OrderDto {
     private PaymentType paymentType;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
-
 }

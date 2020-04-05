@@ -6,5 +6,4 @@ public enum PaymentType {
     MONEY_TRANSFER,
     UPON_DELIVERY,
     PAYU
-
 }
