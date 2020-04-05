@@ -34,6 +34,7 @@ public class ProductController {
     public ProductDto updateProduct(ProductDto productDto) {
         return new ProductDto(1L, "Product after update", 2L,
                 "Updated description", 1, new BigDecimal(200));
+
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createProduct")
