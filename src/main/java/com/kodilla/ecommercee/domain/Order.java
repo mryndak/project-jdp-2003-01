@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Getter
 @Builder
 public class Order {
-
     private Long orderId;
     private Long cartId;
     private Long userId;
