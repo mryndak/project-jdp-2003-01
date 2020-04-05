@@ -22,8 +22,6 @@ public class UserController {
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteUser")
     public void deleteUser(Long userId) {
     }
-
-
     @RequestMapping(method = RequestMethod.PUT, value = "updateUser")
     public UserDto updateUser(Long userId) {
         return new UserDto(1L, 1L, 1L, "STH", "sth", "login", "pwd", "MAIL");
