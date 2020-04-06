@@ -18,11 +18,12 @@ public class OrderController {
     public List<OrderDto> getOrders() {
         return new ArrayList<>();
     }
-
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
+
     public OrderDto getOrder(@RequestParam Long orderId) {
         return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(10),
                 DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.ORDER_PLACED);
+
     }
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
     public void deleteOrder(@RequestParam Long orderId) {
@@ -30,10 +31,12 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
+
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(20),
                 DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.PREPARING_ORDER);
     }
+
 
     @RequestMapping(method = RequestMethod.POST, value = "createOrder")
     public void createOrder(@RequestBody OrderDto orderDto) {
