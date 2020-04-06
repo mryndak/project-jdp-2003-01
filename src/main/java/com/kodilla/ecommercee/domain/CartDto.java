@@ -3,11 +3,11 @@ package com.kodilla.ecommercee.domain;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class GroupDto {
+public class CartDto {
     private Long id;
-    private String groupName;
-    private String description;
+    private LocalDate cartDate;
 }

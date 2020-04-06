@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,12 +29,6 @@ public class Group {
             fetch = FetchType.LAZY
     )
     private List<Product> products = new ArrayList<>();
-
-    public Group(Long id, String groupName, String description) {
-        this.id = id;
-        this.groupName = groupName;
-        this.description = description;
-    }
 
     public void addProduct(Product product) {
         products.add(product);
