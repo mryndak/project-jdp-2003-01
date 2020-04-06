@@ -21,7 +21,7 @@ public class OrderController {
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
 
     public OrderDto getOrder(@RequestParam Long orderId) {
-        return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(10),
+        return new OrderDto(1L, 1L, 1L, 1L, LocalDate.now().plusDays(10),
                 DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.ORDER_PLACED);
 
     }
@@ -33,8 +33,8 @@ public class OrderController {
     @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
 
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
-        return new OrderDto(1L, 1L, 1L, LocalDate.now().plusDays(20),
-                DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.PREPARING_ORDER);
+        return new OrderDto(1L, 1L, 1L, 1L, LocalDate.now().plusDays(10),
+                DeliveryType.TO_HOME, PaymentType.PAYU, OrderStatus.ORDER_PLACED);
     }
 
 
