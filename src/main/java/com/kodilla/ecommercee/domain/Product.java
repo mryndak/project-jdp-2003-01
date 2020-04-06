@@ -14,15 +14,13 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long Id;
 
-    @Column(name="PRODUCT_NAME")
+
     private String productName;
 
-    @Column(name="GROUP_ID")
-    private Long groupId;
 
-    @Column(name="DESCRIPTION")
     private String description;
 
     @Column(name="QUANTITY")
