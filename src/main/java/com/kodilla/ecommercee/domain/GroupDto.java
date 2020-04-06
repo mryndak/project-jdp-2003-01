@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class GroupDto {
     private Long id;
     private String groupName;
