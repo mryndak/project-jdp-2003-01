@@ -14,9 +14,10 @@ import java.time.LocalDate;
 @Getter
 @Builder
 public class Order {
-    private Long orderId;
+    private Long id;
     private Long cartId;
     private Long userId;
+    private Long addressId;
     private LocalDate orderDate;
     private LocalDate deliveryDate;
     @Enumerated(EnumType.STRING)
