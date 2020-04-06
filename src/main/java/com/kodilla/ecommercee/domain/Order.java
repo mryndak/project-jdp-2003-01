@@ -1,71 +1,43 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "ORDERS")
 public class Order {
 
-    private Long orderId;
-    private Long cardId;
-    private User user;
-    private LocalDate orderDate;
-    private LocalDate deliveryDate;
-    private DeliveryType deliveryType;
-    private OrderStatus orderStatus;
-
-    public Order(LocalDate orderDate, LocalDate deliveryDate, DeliveryType deliveryType, OrderStatus orderStatus) {
-        this.orderDate = orderDate;
-        this.deliveryDate = deliveryDate;
-        this.deliveryType = deliveryType;
-        this.orderStatus = orderStatus;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getOrderId() {
-        return orderId;
-    }
+    private Long id;
 
-    @Column(name = "CARD_ID")
-    public Long getCardId() {
-        return cardId;
-    }
+    @Column(name = "CART_ID")
+    private Long cartId;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID")
-    public User getUser() {
-        return user;
-    }
+    @JoinColumn(name = "USER_ID", nullable = true)
+    private User user;
 
-    @Column(name = "ORDER_DATE")
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
+    @OneToOne
+    @JoinColumn(name = "ADDRESS_ID")
+    private Address address;
 
-    @Column(name = "DELIVERY_DATE")
-    public LocalDate getDeliveryDate() {
-        return deliveryDate;
-    }
+    private LocalDate orderDate;
+    private LocalDate deliveryDate;
 
-    @Column(name = "DELIVERY_TYPE")
-    public DeliveryType getDeliveryType() {
-        return deliveryType;
-    }
+    @Enumerated(EnumType.STRING)
+    private DeliveryType deliveryType;
 
-    @Column(name = "ORDER_STATUS")
-    public OrderStatus getOrderStatus() {
-        return orderStatus;
-    }
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
 
-
-
-
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus = OrderStatus.ORDER_PLACED;
 }
+

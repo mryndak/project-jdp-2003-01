@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @Getter
 public class UserDto {
 
-    private Long userId;
+    private Long id;
+    private Long orderId;
+    private Long addressId;
     private String firstName;
     private String lastName;
     private String login;
     private String password;
     private String email;
-    private PaymentType paymentType;
-    private OrderStatus orderStatus;
 }

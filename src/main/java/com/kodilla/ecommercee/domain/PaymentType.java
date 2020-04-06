@@ -1,5 +1,9 @@
 package com.kodilla.ecommercee.domain;
 
 public enum PaymentType {
-    BANK_TRANSFER, ADVANCE_PAYMENT, CASH_BY_DELIVERY;
+    BLIK,
+    CREDIT_CARD,
+    MONEY_TRANSFER,
+    UPON_DELIVERY,
+    PAYU
 }
