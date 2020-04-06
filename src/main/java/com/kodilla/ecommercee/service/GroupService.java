@@ -29,8 +29,8 @@ public class GroupService {
     }
 
     public GroupDto update(GroupDto groupDto) {
-        Group group = groupRepository.findById(groupDto.getId()).orElseThrow(() -> new EntityNotFoundException(Group.class, groupDto.getId()));
-        return groupMapper.mapToDto(save(group));
+        groupRepository.findById(groupDto.getId()).orElseThrow(() -> new EntityNotFoundException(Group.class, groupDto.getId()));
+        return groupMapper.mapToDto(save(groupMapper.map(groupDto)));
     }
 
     public List<GroupDto> getGroups() {
