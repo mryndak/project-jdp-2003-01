@@ -1,38 +1,22 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 
-
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "PRODUCT")
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productId;
-
-    @Column(name = "PRODUCT_NAME")
+    private Long Id;
     private String productName;
-    
-    @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
-    private Group group;
-
-    @Column(name = "DESCRIPTION")
+    private Long groupId;
     private String description;
-
-    @Column(name = "QUANTITY")
     private int quantity;
-
-    @Column(name = "PRICE")
     private BigDecimal price;
-
-    @ManyToOne
-    @JoinColumn(name = "CARTITEM_ID")
-    private CartItem cartItem;
 }

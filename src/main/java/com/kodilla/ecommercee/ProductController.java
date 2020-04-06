@@ -31,13 +31,14 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateProduct")
-    public ProductDto updateProduct(ProductDto productDto){
+    public ProductDto updateProduct(ProductDto productDto) {
         return new ProductDto(1L, "Product after update", 2L,
-                "Updated description",  1, new BigDecimal(200));
+                "Updated description", 1, new BigDecimal(200));
+
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createProduct")
-    public boolean createProduct(ProductDto productDto){
+    public boolean createProduct(ProductDto productDto) {
         System.out.println("Product was created");
         return true;
     }

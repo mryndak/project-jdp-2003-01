@@ -15,8 +15,8 @@ public class GroupController {
     }
 
     @PostMapping(value = "createGroup")
-    public boolean createGroup(@RequestBody GroupDto groupDto) {
-        return true;
+    public void createGroup(@RequestBody GroupDto groupDto) {
+
     }
 
     @PutMapping(value = "updateGroup")

@@ -1,46 +1,29 @@
 package com.kodilla.ecommercee.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.time.LocalDate;
-import java.util.Random;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
+@Builder
 public class OrderDto {
-    private Long orderId;
+    private Long id;
     private Long cartId;
     private Long userId;
-    private LocalDate orderDate;
+    private Long addressId;
+    private final LocalDate orderDate = LocalDate.now();
     private LocalDate deliveryDate;
+    @Enumerated(EnumType.STRING)
     private DeliveryType deliveryType;
+    @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
+    @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
-
-    public OrderDto(Long orderId, Long cartId, Long userId, DeliveryType deliveryType, PaymentType paymentType, OrderStatus orderStatus) {
-        this.orderId = orderId;
-        this.cartId = cartId;
-        this.userId = userId;
-        this.deliveryType = deliveryType;
-        this.paymentType = paymentType;
-        this.orderStatus = orderStatus;
-        createOrderDate();
-        createDeliveryDate();
-    }
-
-    private LocalDate createOrderDate() {
-        this.orderDate = LocalDate.now();
-        return orderDate;
-    }
-
-    private LocalDate createDeliveryDate() {
-        Random random = new Random(10);
-        this.deliveryDate = orderDate.plusDays(random.nextInt());
-        return deliveryDate;
-    }
 }
