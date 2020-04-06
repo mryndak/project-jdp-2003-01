@@ -3,15 +3,14 @@ package com.kodilla.ecommercee;
 import com.kodilla.ecommercee.domain.CartItemDto;
 import com.kodilla.ecommercee.domain.Group;
 import com.kodilla.ecommercee.domain.GroupDto;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RestController
+@RequestMapping("/v1/ecommercee/group")
 public class GroupController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getGroups")
