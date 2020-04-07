@@ -1,54 +1,37 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-@AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Data
 @Builder
 @Entity
-@Table(name = "Order")
-@Data
+@Table(name = "orders")
 public final class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true, name = "id")
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "cartId")
-    @NotNull
-    @OneToOne(
-            targetEntity = Cart.class,
-            cascade = CascadeType.REMOVE,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(name = "cardId")
-    private Long cartId;
+    @OneToOne
+    @JoinColumn(name = "cartId")
+    private Cart cartId;
 
-    @Column(name = "userId")
-    @NotNull
-    @ManyToOne(
-            targetEntity = User.class,
-            cascade = CascadeType.REMOVE,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(name = "user.id")
-    private Long userId;
+    @ManyToOne
+    @JoinColumn
+    private User userId;
 
-    @Column(name = "addressId")
-    @NotNull
-    @OneToOne(
-            targetEntity = Address.class,
-            cascade = CascadeType.REMOVE,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(name = "addressId")
-    private Long addressId;
+    @OneToOne
+    @JoinColumn
+    private Address addressId;
 
     @Column(name = "orderDate")
     @NotNull
