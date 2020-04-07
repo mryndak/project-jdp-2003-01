@@ -15,9 +15,9 @@ import java.time.LocalDate;
 @Builder
 public class OrderDto {
     private Long id;
-    private Long cartId;
-    private Long userId;
-    private Long addressId;
+    private Cart cartId;
+    private User userId;
+    private Address addressId;
     private final LocalDate orderDate = LocalDate.now();
     private LocalDate deliveryDate;
 
