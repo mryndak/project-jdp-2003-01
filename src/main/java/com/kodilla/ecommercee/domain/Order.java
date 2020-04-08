@@ -14,44 +14,44 @@ import java.time.LocalDate;
 @Data
 @Builder
 @Entity
-@Table(name = "orders")
+@Table(name = "ORDERS")
 public final class Order {
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "cartId")
+    @JoinColumn(name = "CART_ID")
     private Cart cartId;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "USER_ID")
     private User userId;
 
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "ADDRESS_ID")
     private Address addressId;
 
-    @Column(name = "orderDate")
+    @Column(name = "ORDER_DATE")
     @NotNull
     private LocalDate orderDate;
 
-    @Column(name = "deliveryDate")
+    @Column(name = "DELIVERY_DATE")
     @NotNull
     private LocalDate deliveryDate;
 
-    @Column(name = "deliveryType")
+    @Column(name = "DELIVERY_TYPE")
     @NotNull
     @Enumerated(EnumType.STRING)
     private DeliveryType deliveryType;
 
-    @Column(name = "paymentType")
+    @Column(name = "PAYMENT_TYPE")
     @NotNull
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
 
-    @Column(name = "orderStatus")
+    @Column(name = "ORDER_STATUS")
     @NotNull
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.ORDER_PLACED;
