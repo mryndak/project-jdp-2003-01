@@ -31,4 +31,5 @@ public class UserDao {
     public void deleteUser(final Long id) {
         userRepository.deleteById(id);
     }
+
 }
