@@ -39,5 +39,6 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testCompileOnly 'org.projectlombok:lombok:1.18.4'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.4'
+    testCompile group:'com.h2database', name:'h2', version: '1.4.195'
 
 }
