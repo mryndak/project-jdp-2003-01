@@ -12,3 +12,4 @@ public class GroupDto {
     private String groupName;
     private String description;
 }
+

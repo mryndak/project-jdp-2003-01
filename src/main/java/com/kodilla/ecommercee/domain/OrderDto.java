@@ -20,10 +20,13 @@ public class OrderDto {
     private Long addressId;
     private final LocalDate orderDate = LocalDate.now();
     private LocalDate deliveryDate;
+
     @Enumerated(EnumType.STRING)
     private DeliveryType deliveryType;
+
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 }

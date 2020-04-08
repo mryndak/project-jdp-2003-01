@@ -35,5 +35,5 @@ public class CartItem {
     @ManyToOne
     @JoinColumn(name="CART_ID")
     private Cart cart;
-
 }
+
