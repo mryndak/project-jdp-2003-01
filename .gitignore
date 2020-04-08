@@ -21,6 +21,12 @@ HELP.md
 *.ipr
 /out/
 
+**/out/
+**/build/
+
+=======
+
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -29,4 +35,3 @@ HELP.md
 /.nb-gradle/
 
 ### VS Code ###
-.vscode/
