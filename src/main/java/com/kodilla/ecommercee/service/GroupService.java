@@ -15,22 +15,19 @@ import java.util.Optional;
 public class GroupService {
 
     @Autowired
-    GroupRepository groupRepository;
+    private GroupRepository groupRepository;
     @Autowired
-    GroupMapper groupMapper;
-
-    public Group save(final Group group) {
-        return groupRepository.save(group);
-    }
+    private GroupMapper groupMapper;
 
     public GroupDto create(GroupDto groupDto) {
+        groupDto.setId(null);
         Group group = groupMapper.map(groupDto);
-        return groupMapper.mapToDto(save(group));
+        return groupMapper.mapToDto(groupRepository.save(group));
     }
 
     public GroupDto update(GroupDto groupDto) {
         groupRepository.findById(groupDto.getId()).orElseThrow(() -> new EntityNotFoundException(Group.class, groupDto.getId()));
-        return groupMapper.mapToDto(save(groupMapper.map(groupDto)));
+        return groupMapper.mapToDto(groupRepository.save(groupMapper.map(groupDto)));
     }
 
     public List<GroupDto> getGroups() {

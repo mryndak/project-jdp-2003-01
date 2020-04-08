@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Table
-@Entity(name = "_GROUP")
+@Entity(name = "PRODUCT_GROUP")
 public class Group {
 
     @Id
