@@ -20,8 +20,12 @@ public class GroupService {
     private GroupMapper groupMapper;
 
     public GroupDto create(GroupDto groupDto) {
-        groupDto.setId(null);
-        Group group = groupMapper.map(groupDto);
+
+        Group group = Group.builder()
+                .id(null)
+                .groupName(groupDto.getGroupName())
+                .description(groupDto.getDescription())
+                .build();
         return groupMapper.mapToDto(groupRepository.save(group));
     }
 

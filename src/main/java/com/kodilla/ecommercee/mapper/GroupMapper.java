@@ -10,10 +10,11 @@ import java.util.stream.Collectors;
 @Component
 public class GroupMapper {
     public Group map(final GroupDto groupDto) {
-        return new Group(
-                groupDto.getId(),
-                groupDto.getGroupName(),
-                groupDto.getDescription());
+        return Group.builder()
+                .id(groupDto.getId())
+                .groupName(groupDto.getGroupName())
+                .description(groupDto.getDescription())
+                .build();
     }
 
     public GroupDto mapToDto(final Group group) {
