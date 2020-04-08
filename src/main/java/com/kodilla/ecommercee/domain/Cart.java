@@ -30,5 +30,5 @@ public class Cart {
             fetch = FetchType.LAZY
     )
     private List<CartItem> cartItem = new ArrayList<>();
-
 }
+

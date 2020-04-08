@@ -1,6 +1,8 @@
 package com.kodilla.ecommercee.domain;
 
 
+
+import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +18,7 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long Id;
 
     @Column(name="PRODUCT_NAME")
     private String productName;

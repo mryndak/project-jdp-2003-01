@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Builder
 public class UserDto {
+
     private Long id;
     private Long orderId;
     private Long addressId;
