@@ -23,9 +23,8 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct")
-    public boolean deleteProduct(@RequestParam Long productId) {
+    public void deleteProduct(@RequestParam Long productId) {
         System.out.println("Product has been deleted");
-        return true;
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateProduct")
@@ -36,8 +35,7 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createProduct")
-    public boolean createProduct(@RequestBody ProductDto productDto) {
+    public void createProduct(@RequestBody ProductDto productDto) {
         System.out.println("Product was created");
-        return true;
     }
 }
