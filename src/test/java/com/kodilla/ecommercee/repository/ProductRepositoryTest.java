@@ -87,6 +87,9 @@ public class ProductRepositoryTest {
         //When
         List<Product> dbProduct = productRepository.findAll();
         //Then
+        for(Product list : dbProduct){
+            System.out.println(list.getProductName());
+        }
         Assert.assertEquals(3, dbProduct.size());
         Assert.assertEquals("Papier do d", dbProduct.get(2).getDescription());
 
@@ -119,10 +122,11 @@ public class ProductRepositoryTest {
         productRepository.save(product2);
         //When
         productRepository.deleteById(product1.getId());
+        productRepository.deleteById(product.getId());
+        productRepository.deleteById(product2.getId());
         List<Product> products = productRepository.findAll();
         //Then
-        Assert.assertEquals("telewizor", products.get(0).getProductName());
-        Assert.assertEquals(2, products.size());
+        Assert.assertEquals(0, products.size());
 
     }
 }
