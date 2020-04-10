@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class OrderMapper {
     public Order mapToOrder(final OrderDto orderDto, final Cart cart, final Address address, final User user) {
         return Order.builder()
-                .id(orderDto.getId())
+                .id(null)
                 .cart(cart)
                 .address(address)
                 .user(user)

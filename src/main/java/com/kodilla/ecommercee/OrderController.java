@@ -1,9 +1,7 @@
 package com.kodilla.ecommercee;
 
-import com.kodilla.ecommercee.domain.Address;
-import com.kodilla.ecommercee.domain.Cart;
-import com.kodilla.ecommercee.domain.OrderDto;
-import com.kodilla.ecommercee.domain.User;
+import com.kodilla.ecommercee.domain.*;
+import com.kodilla.ecommercee.mapper.AddressMapper;
 import com.kodilla.ecommercee.mapper.OrderMapper;
 import com.kodilla.ecommercee.service.AddressService;
 import com.kodilla.ecommercee.service.CartService;
@@ -22,15 +20,17 @@ public class OrderController {
     private final UserService userService;
     private final AddressService addressService;
     private final CartService cartService;
+    private final AddressMapper addressMapper;
 
     @Autowired
     public OrderController(OrderService service, OrderMapper orderMapper, UserService userService,
-                           AddressService addressService, CartService cartService) {
+                           AddressService addressService, CartService cartService, AddressMapper addressMapper) {
         this.service = service;
         this.orderMapper = orderMapper;
         this.userService = userService;
         this.cartService = cartService;
         this.addressService = addressService;
+        this.addressMapper = addressMapper;
     }
     @RequestMapping(method = RequestMethod.GET, value = "getOrders")
     public List<OrderDto> getOrders() {

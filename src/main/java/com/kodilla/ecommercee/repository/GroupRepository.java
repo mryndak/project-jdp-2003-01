@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-import com.kodilla.ecommercee.domain.Address;
+import com.kodilla.ecommercee.domain.Group;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,18 +10,13 @@ import java.util.Optional;
 
 @Transactional
 @Repository
-public interface AddressRepository extends CrudRepository<Address, Long> {
+public interface GroupRepository extends CrudRepository<Group, Long> {
     @Override
-    List<Address> findAll();
+    List<Group> findAll();
 
     @Override
-    Address save(Address address);
+    Group save(Group group);
 
     @Override
-    Optional<Address> findById(Long id);
-
-    @Override
-    void deleteById(Long id);
-
-    Address getAddressById(Long id);
+    Optional<Group> findById(Long id);
 }
