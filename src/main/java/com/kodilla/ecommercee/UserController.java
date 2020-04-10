@@ -12,7 +12,6 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("v1/ecommercee/user")
 public class UserController {
@@ -36,7 +35,7 @@ public class UserController {
         userService.saveUser(userMapper.mapToUser(userDto));
     }
 
-    @PutMapping(value = "updateUser")
+    @PutMapping(value = "updateUser", consumes = APPLICATION_JSON_VALUE)
     public UserDto updateUser(@RequestBody UserDto userDto) {
         return userService.updateUser(userDto);
     }

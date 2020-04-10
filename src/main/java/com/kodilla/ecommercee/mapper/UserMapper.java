@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class UserMapper {
     public User mapToUser(final UserDto userDto) {
         return User.builder()
-                .id(userDto.getId())
+                .id(null)
                 .addressId(userDto.getAddressId())
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
