@@ -1,15 +1,14 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Builder
 public class CartItemDto {
     private Long id;
     private Long productId;
@@ -18,4 +17,5 @@ public class CartItemDto {
     private LocalDate priceDate;
     private Long productCount;
     private LocalDate addedDate;
+
 }

@@ -1,11 +1,14 @@
 package com.kodilla.ecommercee;
 
 
+import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.CartItemDto;
 import com.kodilla.ecommercee.mapper.CartItemMapper;
 import com.kodilla.ecommercee.repository.CartItemRepository;
+import com.kodilla.ecommercee.service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -18,9 +21,16 @@ public class CartItemController {
     @Autowired
     private CartItemRepository cartItemRepository;
 
+    @Autowired
+    private CartItemService cartItemService;
+
+    @Autowired
+    private  CartItemMapper cartItemMapper;
+
+
     @RequestMapping(method = RequestMethod.GET, value = "getCartItems")
     public List<CartItemDto> getCartItems() {
-        return new ArrayList<>();
+       return cartItemService.getCartItems();
     }
 
 //    @RequestMapping(method = RequestMethod.GET, value = "getCartItem")
@@ -36,14 +46,15 @@ public class CartItemController {
 //
 //    @RequestMapping(method = RequestMethod.PUT, value = "updateCartItem")
 //    public CartItemDto updateCartItem(@RequestBody CartItemDto cartItemDto) {
-//        return new CartItemDto(2L, 2L, 1L,"TV - UPDATE", LocalDate.now(),
+//        return new CartItemDto(2L, 2L, 1L, "TV - UPDATE", LocalDate.now(),
 //                10L, LocalDate.now());
 //
 //    }
 //
-//    @RequestMapping(method = RequestMethod.POST, value = "createCartItem")
-//    public void createCartItem(@RequestBody CartItemDto cartItemDto) {
-//        System.out.println("CartItem was created");
-//    }
-
+    @RequestMapping(method = RequestMethod.POST, value = "createCartItem",
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CartItemDto createCartItem(@RequestBody CartItemDto cartItemDto) {
+       return cartItemService.create(cartItemDto);
+    }
 }
+

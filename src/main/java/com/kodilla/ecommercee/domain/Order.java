@@ -17,6 +17,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @Column(name = "CART_ID")
     private Long cartId;
 
