@@ -3,6 +3,7 @@ package com.kodilla.ecommercee;
 
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.CartItemDto;
+import com.kodilla.ecommercee.domain.CartNotFoundException;
 import com.kodilla.ecommercee.mapper.CartItemMapper;
 import com.kodilla.ecommercee.repository.CartItemRepository;
 import com.kodilla.ecommercee.service.CartItemService;
@@ -33,11 +34,10 @@ public class CartItemController {
        return cartItemService.getCartItems();
     }
 
-//    @RequestMapping(method = RequestMethod.GET, value = "getCartItem")
-//    public CartItemDto getCartItem(@RequestParam Long id) {
-//        return new CartItemDto(1L, 1L,1L, "TV", LocalDate.now(),
-//                10L, LocalDate.now());
-//    }
+    @RequestMapping(method = RequestMethod.GET, value = "getCartItem")
+    public CartItemDto getCartItem(@RequestParam Long id) throws CartNotFoundException {
+        return cartItemService.getCartItem(id);
+    }
 //
 //    @RequestMapping(method = RequestMethod.DELETE, value = "deleteCartItem")
 //    public void deleteCartItem(@RequestParam Long id) {
@@ -53,7 +53,7 @@ public class CartItemController {
 //
     @RequestMapping(method = RequestMethod.POST, value = "createCartItem",
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CartItemDto createCartItem(@RequestBody CartItemDto cartItemDto) {
+    public CartItemDto createCartItem(@RequestBody CartItemDto cartItemDto) throws CartNotFoundException {
        return cartItemService.create(cartItemDto);
     }
 }

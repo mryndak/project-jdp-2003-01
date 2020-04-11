@@ -1,9 +1,6 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.domain.Cart;
-import com.kodilla.ecommercee.domain.CartItem;
-import com.kodilla.ecommercee.domain.CartItemDto;
-import com.kodilla.ecommercee.domain.Product;
+import com.kodilla.ecommercee.domain.*;
 import com.kodilla.ecommercee.mapper.CartItemMapper;
 import com.kodilla.ecommercee.repository.CartItemRepository;
 import com.kodilla.ecommercee.repository.CartRepository;
@@ -13,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CartItemService {
@@ -34,10 +32,14 @@ public class CartItemService {
         return cartItemMapper.mapToDtoList(cartItemRepository.findAll());
     }
 
+    public CartItemDto getCartItem(final Long id) throws CartNotFoundException {
+        Optional<CartItem> cartItem = cartItemRepository.findById(id);
+        return cartItemMapper.mapToCartItemDto(cartItem.orElseThrow(CartNotFoundException::new));
+    }
 
-    public CartItemDto create(CartItemDto cartItemDto) {
+    public CartItemDto create(CartItemDto cartItemDto) throws CartNotFoundException {
         Cart cart = cartRepository.findById(cartItemDto.getCartId()).orElseThrow(
-                EntityNotFoundException::new);
+                CartNotFoundException::new);
         CartItem cartItem = cartItemMapper.mapToCartItem(cartItemDto, cart);
         return cartItemMapper.mapToCartItemDto(cartItemRepository.save(cartItem));
     }
