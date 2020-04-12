@@ -12,7 +12,7 @@ public class CartItemMapper {
 
     public CartItem mapToCartItem(final CartItemDto cartItemDto, final Cart cart) {
         return CartItem.builder()
-                .id(null)
+                .id(cartItemDto.getId())
                 .productId(cartItemDto.getProductId())
                 .productName(cartItemDto.getProductName())
                 .priceDate(cartItemDto.getPriceDate())

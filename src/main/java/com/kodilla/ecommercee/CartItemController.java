@@ -44,11 +44,11 @@ public class CartItemController {
 //        System.out.println("CartItem has been deleted");
 //    }
 //
-//    @RequestMapping(method = RequestMethod.PUT, value = "updateCartItem")
-//    public CartItemDto updateCartItem(@RequestBody CartItemDto cartItemDto) {
-//        return new CartItemDto(2L, 2L, 1L, "TV - UPDATE", LocalDate.now(),
-//                10L, LocalDate.now());
-//
+    @RequestMapping(method = RequestMethod.PUT, value = "updateCartItem")
+    public CartItemDto updateCartItem(@RequestBody CartItemDto cartItemDto) throws CartNotFoundException {
+        return cartItemService.update(cartItemDto);
+    }
+
 //    }
 //
     @RequestMapping(method = RequestMethod.POST, value = "createCartItem",

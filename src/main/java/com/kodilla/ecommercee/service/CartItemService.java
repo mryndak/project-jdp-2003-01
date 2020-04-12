@@ -43,4 +43,11 @@ public class CartItemService {
         CartItem cartItem = cartItemMapper.mapToCartItem(cartItemDto, cart);
         return cartItemMapper.mapToCartItemDto(cartItemRepository.save(cartItem));
     }
+
+    public CartItemDto update(CartItemDto cartItemDto) throws CartNotFoundException {
+        cartItemRepository.findById(cartItemDto.getId());
+        Cart cart = cartRepository.findById(cartItemDto.getCartId()).orElseThrow(
+                CartNotFoundException::new);
+        return cartItemMapper.mapToCartItemDto(cartItemRepository.save(cartItemMapper.mapToCartItem(cartItemDto,cart)));
+    }
 }
