@@ -1,7 +1,9 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.*;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Entity
 @Table(name="CART_ITEM")
 public class CartItem {
