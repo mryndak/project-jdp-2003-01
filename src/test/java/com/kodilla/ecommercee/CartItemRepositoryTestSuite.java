@@ -9,13 +9,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EcommerceCartItemRepositoryTestSuite {
+public class CartItemRepositoryTestSuite {
 
     @Autowired
     private CartItemRepository cartItemRepository;
@@ -25,8 +26,8 @@ public class EcommerceCartItemRepositoryTestSuite {
         //Given
         CartItem cartItem = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
+                .products(new ArrayList<>())
                 .productName("cheese")
                 .build();
 
@@ -44,20 +45,20 @@ public class EcommerceCartItemRepositoryTestSuite {
         //Given
         CartItem cartItem1 = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
+                .products(new ArrayList<>())
                 .productName("cheese")
                 .build();
         CartItem cartItem2 = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
+                .products(new ArrayList<>())
                 .productName("cheese")
                 .build();
         CartItem cartItem3 = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
+                .products(new ArrayList<>())
                 .productName("cheese")
                 .build();
 
@@ -79,8 +80,8 @@ public class EcommerceCartItemRepositoryTestSuite {
         //Given
         CartItem cartItem = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
+                .products(new ArrayList<>())
                 .productName("cheese")
                 .build();
 
@@ -100,8 +101,8 @@ public class EcommerceCartItemRepositoryTestSuite {
         //Given
         CartItem cartItem = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
+                .products(new ArrayList<>())
                 .productName("cheese")
                 .build();
 

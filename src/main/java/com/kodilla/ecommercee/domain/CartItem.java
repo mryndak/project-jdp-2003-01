@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -18,6 +20,7 @@ import java.time.LocalDate;
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "CART_ITEM_ID")
     private Long id;
 
     @Column(name="PRODUCT_ID")
@@ -38,5 +41,13 @@ public class CartItem {
     @ManyToOne
     @JoinColumn(name="CART_ID")
     private Cart cart;
+
+    @OneToMany(
+            targetEntity = Product.class,
+            cascade = CascadeType.ALL,
+            mappedBy = "cartItem",
+            fetch = FetchType.LAZY
+    )
+    private List<Product> products = new ArrayList<>();
 }
 

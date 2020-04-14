@@ -17,42 +17,31 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EcommerceCartRepositoryTestSuite {
+public class CartRepositoryTestSuite {
 
     @Autowired
     private CartRepository cartRepository;
 
     @Test
-    public void testSaveCartWithCartItems() {
+    public void testSaveCartWithCartItem() {
         //Given
-        /*Group group = Group.builder()
-                .description("vehicles")
-                .groupName("Cars")
-                .build();
-        Product product = Product.builder()
-                .productName("passat")
-                .description("fast")
-                .quantity(3)
-                .build();
-        group.addProduct(product);
-        product.setGroup(group);*/
         CartItem cartItem1 = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
                 .productName("cheese")
+                .products(new ArrayList<>())
                 .build();
         CartItem cartItem2 = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
                 .productName("cheese")
+                .products(new ArrayList<>())
                 .build();
         CartItem cartItem3 = CartItem.builder()
                 .addedDate(LocalDate.of(2003, 12, 3))
-                //.productId(product.getId())
                 .priceDate(LocalDate.of(2005, 12, 4))
                 .productName("cheese")
+                .products(new ArrayList<>())
                 .build();
         Cart cart = Cart.builder()
                 .cartDate(LocalDate.of(2003, 12, 7))

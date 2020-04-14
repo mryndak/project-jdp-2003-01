@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,16 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "PRODUCT_ID")
     private Long Id;
+
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
+
+    @ManyToOne
+    @JoinColumn(name = "CART_ITEM_ID")
+    private CartItem cartItem;
 
     @Column(name="PRODUCT_NAME")
     private String productName;
@@ -31,7 +41,5 @@ public class Product {
     @Column(name="PRICE")
     private BigDecimal price;
 
-    @ManyToOne
-    @JoinColumn(name="GROUP_ID")
-    private Group group;
+
 }
