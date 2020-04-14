@@ -14,12 +14,12 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Entity
+@Builder
 @Table(name="PRODUCT")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PRODUCT_ID")
-    private Long Id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "GROUP_ID")
