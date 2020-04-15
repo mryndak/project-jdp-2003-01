@@ -26,11 +26,11 @@ public final class Order {
     private Cart cart;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID", unique = true)
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "ADDRESS_ID", unique = true)
+    @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
     @Column(name = "ORDER_DATE")
