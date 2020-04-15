@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-import com.kodilla.ecommercee.domain.CartItem;
+import com.kodilla.ecommercee.domain.Cart;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,18 +10,17 @@ import java.util.Optional;
 
 @Transactional
 @Repository
-public interface CartItemRepository extends CrudRepository<CartItem, Long> {
+public interface CartRepository extends CrudRepository<Cart, Long> {
 
     @Override
-    List<CartItem> findAll();
+    List<Cart> findAll();
 
     @Override
-    CartItem save(CartItem cartItem);
+    Cart save(Cart cart);
 
     @Override
-    Optional<CartItem> findById(Long id);
+    Optional<Cart> findById(Long id);
 
     @Override
     void deleteById(Long id);
-
 }
