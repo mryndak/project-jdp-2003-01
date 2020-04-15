@@ -15,13 +15,16 @@ import java.util.Optional;
 
 @Service
 public class AddressService {
+    private final AddressMapper addressMapper;
+    private final AddressRepository addressRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    private AddressMapper addressMapper;
-    @Autowired
-    private AddressRepository addressRepository;
-    @Autowired
-    private UserRepository userRepository;
+    public AddressService(AddressMapper addressMapper, AddressRepository addressRepository, UserRepository userRepository) {
+        this.addressMapper = addressMapper;
+        this.addressRepository = addressRepository;
+        this.userRepository = userRepository;
+    }
 
     public AddressDto create(AddressDto addressDto) {
         User user = userRepository.findById(addressDto.getUserId()).orElseThrow(() -> new EntityNotFoundException(User.class, addressDto.getUserId()));
@@ -48,5 +51,10 @@ public class AddressService {
     public void deleteAddress(final Long addressId) {
         addressRepository.findById(addressId).orElseThrow(() -> new EntityNotFoundException(Address.class, addressId));
         addressRepository.deleteById(addressId);
+    }
+
+    public Address getAddressById(final long id) {
+        Address address = addressRepository.getAddressById(id);
+        return address;
     }
 }
