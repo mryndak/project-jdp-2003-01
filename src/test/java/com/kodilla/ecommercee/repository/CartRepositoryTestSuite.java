@@ -1,8 +1,7 @@
-package com.kodilla.ecommercee;
+package com.kodilla.ecommercee.repository;
 
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.CartItem;
-import com.kodilla.ecommercee.repository.CartRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
