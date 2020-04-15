@@ -36,6 +36,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation "org.mapstruct:mapstruct-jdk8:${mapstructVersion}"
 
+
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
     compileOnly 'org.projectlombok:lombok:1.18.4'
 
@@ -47,4 +48,6 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testCompileOnly 'org.projectlombok:lombok:1.18.4'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.4'
+    testCompile group:'com.h2database', name:'h2', version: '1.4.195'
+
 }
