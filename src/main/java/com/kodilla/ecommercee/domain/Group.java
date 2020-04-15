@@ -23,6 +23,7 @@ public class Group {
     private Long id;
     @Column
     private String groupName;
+
     @Column
     private String description;
     @OneToMany(

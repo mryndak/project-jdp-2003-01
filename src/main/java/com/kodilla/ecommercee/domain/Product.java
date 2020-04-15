@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Entity
-@Builder
 @Table(name="PRODUCT")
 public class Product {
     @Id
@@ -22,11 +21,11 @@ public class Product {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
+    @JoinColumn(name="GROUP_ID")
     private Group group;
 
     @ManyToOne
-    @JoinColumn(name = "CART_ITEM_ID")
+    @JoinColumn(name="CART_ITEM_ID")
     private CartItem cartItem;
 
     @Column(name="PRODUCT_NAME")
