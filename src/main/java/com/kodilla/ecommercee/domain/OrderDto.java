@@ -29,4 +29,5 @@ public class OrderDto {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
+
 }

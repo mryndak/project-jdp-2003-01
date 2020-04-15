@@ -1,6 +1,4 @@
 HELP.md
-.gradle
-build/
 /.gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -17,12 +15,10 @@ build/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
 /.idea
 *.iws
 *.iml
 *.ipr
-out/
 /out/
 
 **/out/
