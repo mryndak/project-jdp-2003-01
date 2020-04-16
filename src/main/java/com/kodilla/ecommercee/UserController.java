@@ -32,7 +32,7 @@ public class UserController {
 
     @PostMapping(value = "createUser", consumes = APPLICATION_JSON_VALUE)
     public void createUser(@RequestBody UserDto userDto) {
-        userService.saveUser(userMapper.mapToUser(userDto));
+        userService.createUser(userDto);
     }
 
     @PutMapping(value = "updateUser", consumes = APPLICATION_JSON_VALUE)
