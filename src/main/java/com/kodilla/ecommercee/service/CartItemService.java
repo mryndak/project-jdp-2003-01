@@ -34,6 +34,7 @@ public class CartItemService {
         Optional<CartItem> cartItem = cartItemRepository.findById(id);
         return cartItemMapper.mapToCartItemDto(cartItem
                 .orElseThrow(() -> new EntityNotFoundException(Cart.class, id)));
+        
     }
 
     public CartItemDto create(CartItemDto cartItemDto) throws EntityNotFoundException {

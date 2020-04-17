@@ -33,6 +33,7 @@ public class CartService {
         Optional<Cart> cart = cartRepository.findById(id);
         return cartMapper.mapToCartDto(cart
                 .orElseThrow(() -> new EntityNotFoundException(Cart.class, id)));
+
     }
 
     public CartDto createCart(CartDto cartDto) throws EntityNotFoundException {
