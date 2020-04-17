@@ -1,7 +1,9 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.*;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -17,7 +19,8 @@ import java.util.List;
 @Table(name = "CART_ITEM")
 public class CartItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
     @Column(name = "CART_ITEM_ID")
     private Long id;
 

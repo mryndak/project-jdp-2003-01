@@ -13,14 +13,13 @@ import java.util.Optional;
 
 @Service
 public class GroupService {
-
+    
     @Autowired
     private GroupRepository groupRepository;
     @Autowired
     private GroupMapper groupMapper;
 
     public GroupDto create(GroupDto groupDto) {
-
         Group group = Group.builder()
                 .id(null)
                 .groupName(groupDto.getGroupName())
